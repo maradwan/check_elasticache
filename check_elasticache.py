@@ -255,7 +255,7 @@ def main():
                                           info['EngineVersion'],
                                           info['CacheClusterStatus'])
 
-    # ElastiCache Load Average
+    # ElastiCache CPU Utilization
     elif options.metric == 'cpu':
         info = get_cluster_info(options.region, options.ident)
         if not info:
@@ -322,7 +322,7 @@ def main():
         if status != UNKNOWN:
             if status is None:
                 status = OK
-            note = 'Load average: %s%%' % '%, '.join(cpus)
+            note = 'CPU Utilization: %s%%' % '%, '.join(cpus)
             perf_data = ' '.join(perf_data)
 
     # ElastiCache Free Memory
